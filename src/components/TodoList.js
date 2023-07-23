@@ -215,11 +215,6 @@ const TodoList = () => {
                 <Button
                   variant='outlined'
                   size='large'
-                  color='primary'
-                  sx={{
-                    background: '#000000', // Change the background color
-                    boxShadow: '0px 4px 8px rgba(#757ce8, 0.2)', // Add a button shadow
-                  }}
                   onClick={() => handleCreateClick()}
                 >
                   Create +
