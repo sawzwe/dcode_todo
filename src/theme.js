@@ -6,6 +6,7 @@ const theme = createTheme({
       default: '#FCFBFB', // Set the default background color to gray (#f5f5f5)
       // default: '#1B262C', // Set the default background color to gray (#f5f5f5)
       dark:'#051628',
+      light:'#FEFEFE',      
     },
   },
   breakpoints: {
