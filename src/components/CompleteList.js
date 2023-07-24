@@ -142,46 +142,64 @@ const CompleteList = () => {
                     <Paper elevation={0} variant="outlined" style={{ width: '100%', height: '100%', paddingTop: '20px' }}>
                         {list && list.length > 0 ? (
                             list.map((t, index) => (
-                                (<HoverCard
-                                    key={t._id}
-                                    variant="outlined"
-                                    sx={{
-                                        display: 'flex',
-                                        width: '-80%',
-                                        justifyContent: 'left',
-                                        alignItems: 'center',
-                                        my: index === 0 ? 0 : 2, // Adds margin only to cards except the first one
-                                        mx: 4
-                                    }}
-                                >
-                                    <CardActions>
-                                        <Checkbox checked={t.completed} disabled={t.completed} />
-                                    </CardActions>
-                                    {/* <CardActions sx={{ flex: '0 0 5%' }}>
-                                        <Checkbox
-                                            checked={t.completed}
-                                            onChange={() => handleComplete(t._id)} // Complete a task
-                                        />
-                                    </CardActions> */}
-                                    <CardContent sx={{ flex: '0 0 90%' }}>
-                                        <Typography variant="h6" component="div">
-                                            {t.title}
-                                        </Typography>
-                                        <Typography variant="subtitle2" component="div" sx={{ opacity: 0.7 }}>
-                                            [Created On] {t.createdAt.split('T')[0]}
-                                            <span style={{ color: 'green', marginLeft: '8px' }}> [Completed On] {t.updatedAt.split('T')[0]}</span>
-                                        </Typography>
-                                    </CardContent>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flex: '0 0 5%' }}>
-                                        <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleRecycleClick(t._id)}>
-                                            <RecyclingRoundedIcon fontSize='small' color="primary" />
-                                        </IconButton>
+                                (
+                                    <HoverCard
+                                        key={t._id}
+                                        variant="outlined"
+                                        sx={{
+                                            display: 'flex',
+                                            width: '-80%',
+                                            justifyContent: 'left',
+                                            alignItems: 'center',
+                                            my: index === 0 ? 0 : 2, // Adds margin only to cards except the first one
+                                            mx: 4,
+                                            position: 'relative'
+                                        }}
+                                    >
+                                        <CardActions sx={{ flex: '0 0 5%' }}>
+                                            <Checkbox checked={t.completed} disabled={t.completed} />
+                                        </CardActions>
+                                        {/* <CardActions sx={{ flex: '0 0 5%' }}>
+                                            <Checkbox
+                                                checked={t.completed}
+                                                onChange={() => handleComplete(t._id)} // Complete a task
+                                            />
+                                        </CardActions> */}
+                                        <CardContent sx={{ flex: '0 0 90%' }}>
+                                            <Typography variant="h6" component="div">
+                                                {t.title}
+                                            </Typography>
+                                            <Typography variant="subtitle2" component="div" sx={{ opacity: 0.7 }}>
+                                                [Created On] {t.createdAt.split('T')[0]}
+                                                <span style={{ color: 'green', marginLeft: '8px' }}> [Completed On] {t.updatedAt.split('T')[0]}</span>
+                                            </Typography>
+                                        </CardContent>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flex: '0 0 5%' }}>
+                                            <IconButton size="large" color="inherit"
+                                                sx={{
+                                                    opacity: 0.7,
+                                                    position: 'absolute', // Use absolute positioning for the update and delete icons
+                                                    top: 0, // Position the icons at the top-right corner of the card
+                                                    right: 0,
+                                                }}
+                                                onClick={() => handleRecycleClick(t._id)}>
+                                                <RecyclingRoundedIcon fontSize='small' color="primary" />
+                                            </IconButton>
 
-                                        <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleDeleteClick(t._id)}>
-                                            <DeleteOutlineRoundedIcon fontSize='small' color="error" />
-                                        </IconButton>
-                                    </Box>
-                                </HoverCard>)
+                                            <IconButton size="large" color="inherit"
+                                                sx={{
+                                                    opacity: 0.7,
+                                                    position: 'absolute', // Use absolute positioning for the update and delete icons
+                                                    bottom: 0, // Position the icons at the bottom-right corner of the card
+                                                    right: 0,
+                                                }}
+                                                onClick={() => handleDeleteClick(t._id)}>
+                                                <DeleteOutlineRoundedIcon fontSize='small' color="error" />
+                                            </IconButton>
+                                        </Box>
+                                    </HoverCard>
+
+                                )
                             ))
                         ) : (
                             <Grid
