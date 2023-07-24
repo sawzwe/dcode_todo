@@ -11,7 +11,8 @@ import { useTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import axios from 'axios';
 
-export default function UpdateDialog({ taskId, onOpen, onClose }) {
+export default function RecycleDialog({ taskId, onOpen, onClose }) {
+
   const [open, setOpen] = useState(onOpen);
   const [currentTaskTitle, setCurrentTaskTitle] = useState('');
   const [error, setError] = useState(false); // State to track the error status
@@ -44,7 +45,7 @@ export default function UpdateDialog({ taskId, onOpen, onClose }) {
       });
   }, []);
 
-  const handleUpdate = () => {
+  const handleRecycle = () => {
     // Make sure taskId and currentTaskTitle are defined before updating
     if (!taskId || !currentTaskTitle) {
       setError(true); // Set the error status to true
@@ -53,9 +54,9 @@ export default function UpdateDialog({ taskId, onOpen, onClose }) {
 
     // Send a PUT request to the API with the updated task information
     axios
-      .put('/api/todoList', {
-        id: taskId,
+      .post('/api/todoList', {
         title: currentTaskTitle,
+        completed: false,
       })
       .then((response) => {
         handleClose();
@@ -69,7 +70,7 @@ export default function UpdateDialog({ taskId, onOpen, onClose }) {
   return (
     <>
       <Dialog fullScreen={fullScreen} open={open} onClose={handleClose}>
-        <DialogTitle>Update Task</DialogTitle>
+        <DialogTitle>Recycle Task</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -77,9 +78,10 @@ export default function UpdateDialog({ taskId, onOpen, onClose }) {
             id="name"
             type="text"
             fullWidth
-            variant="standard"
             required
             value={currentTaskTitle}
+            variant ="outlined"
+            disabled
             onChange={(e) => {
               setError(false); // Reset the error status when the user starts typing
               setCurrentTaskTitle(e.target.value);
@@ -92,8 +94,8 @@ export default function UpdateDialog({ taskId, onOpen, onClose }) {
           <Button autoFocus onClick={handleClose} color="warning">
             <Typography>Cancel</Typography>
           </Button>
-          <Button onClick={handleUpdate} autoFocus>
-            <Typography>Update</Typography>
+          <Button onClick={handleRecycle} autoFocus>
+            <Typography>Recycle</Typography>
           </Button>
         </DialogActions>
       </Dialog>

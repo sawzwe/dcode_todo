@@ -48,17 +48,17 @@ const TodoList = () => {
     // console.log(taskId);
   };
 
+  const handleDeleteDialogClose = () => {
+    // setDialogOpen(false);
+    setDialogOpenDelete(false)
+    setTaskIdToDelete(null);
+  };
+
   const handleUpdateClick = (taskId) => {
     // setDialogOpen(true);
     setDialogOpenUpdate(true);
     setTaskIdToUpdate(taskId);
     // console.log(taskId);
-  };
-
-  const handleDeleteDialogClose = () => {
-    // setDialogOpen(false);
-    setDialogOpenDelete(false)
-    setTaskIdToDelete(null);
   };
 
   const handleUpdateDialogClose = () => {
@@ -90,7 +90,7 @@ const TodoList = () => {
         console.error('Error fetching data:', error);
         setLoading(false);
       });
-  }, []);
+  }, [list]);
 
   const handleComplete = (taskId) => {
     axios
@@ -126,7 +126,7 @@ const TodoList = () => {
         sx={{ width: '100%', height: '85vh' }}
       >
         <Grid item>
-          <img src="/loading.gif" alt="Loading..." />
+          <img src="/loading2.gif" alt="Loading..." />
         </Grid>
       </Grid>
     );
@@ -228,7 +228,7 @@ const TodoList = () => {
       </Box >
 
       {dialogOpenDelete && taskIdToDelete && (
-        <DeleteDialog taskId={taskIdToDelete} onOpen={dialogOpenDelete} onClose={handleDeleteDialogClose} />
+        <DeleteDialog type={'active'} taskId={taskIdToDelete} onOpen={dialogOpenDelete} onClose={handleDeleteDialogClose} />
       )}
 
       {dialogOpenUpdate && taskIdToUpdate && (

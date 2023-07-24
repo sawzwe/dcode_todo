@@ -8,10 +8,12 @@ import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { Typography } from '@mui/material';
 
-export default function DeleteDialog({ taskId, onOpen, onClose }) {
+export default function DeleteDialog({ type, taskId, onOpen, onClose }) {
     // console.log(taskId);
     // console.log(onOpen);
+
 
     const [open, setOpen] = useState(onOpen);
     const theme = useTheme();
@@ -29,25 +31,33 @@ export default function DeleteDialog({ taskId, onOpen, onClose }) {
 
     const handleDelete = () => {
         // console.log(`Deleting task with ID: ${taskId}`);
-      
+
         axios
-          .delete("/api/todoList", {
-            data: { id: taskId }, 
-          })
-          .then((response) => {
-            if (response.data) {  
-                // Successful request
-                router.refresh();                
-              } else {
-                throw new Error("Delete Failed failed");
-              }
-            // console.log(response.data); 
-            onClose(); 
-          })
-          .catch((error) => {
-            console.error("Error deleting todo:", error);
-          });
-      };
+            .delete("/api/todoList", {
+                data: { id: taskId },
+            })
+            .then((response) => {
+
+                if (response.data) {
+                    if(type==='complete'){
+                        handleClose();
+                        router.push('/completed');
+                    }else{
+                        handleClose();
+                        router.push('/');
+                    }
+                    // Successful request
+
+                } else {
+                    throw new Error("Delete Failed failed");
+                }
+                // console.log(response.data); 
+                // onClose();
+            })
+            .catch((error) => {
+                console.error("Error deleting todo:", error);
+            });
+    };
 
     return (
         <>
@@ -62,10 +72,15 @@ export default function DeleteDialog({ taskId, onOpen, onClose }) {
                 </DialogTitle>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose}>
-                        Cancel
+                        <Typography>
+                            Cancel
+                        </Typography>
+
                     </Button>
-                    <Button onClick={handleDelete} autoFocus> {/* Call handleDelete on Delete button click */}
-                        Delete
+                    <Button onClick={handleDelete} color="error" autoFocus>
+                        <Typography>
+                            Delete
+                        </Typography>
                     </Button>
                 </DialogActions>
             </Dialog>
