@@ -8,11 +8,12 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 import { styled } from '@mui/material/styles';
-import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import { IconButton, Grid } from '@mui/material';
-import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import { Button } from '@mui/material';
-
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import DeleteDialog from './DeleteDialog';
 import UpdateDialog from './UpdateDialog';
 import CreateDialog from './CreateDialog';
@@ -144,51 +145,70 @@ const TodoList = () => {
         }}
       >
 
+        {/* <Paper elevation={0} variant="outlined" style={{ width: '100%', height: '100%', paddingTop: '20px',backgroundColor: '#374553' }}> */}
         <Paper elevation={0} variant="outlined" style={{ width: '100%', height: '100%', paddingTop: '20px' }}>
           {list && list.length > 0 ? (
-            list.map((t, index) => (
-              (
-                <HoverCard
-                  key={t._id}
-                  variant="outlined"
-                  sx={{
-                    display: 'flex',
-                    width: '-80%',
-                    justifyContent: 'left',
-                    alignItems: 'center',
-                    my: index === 0 ? 0 : 2, // Adds margin only to cards except the first one
-                    mx: 4,
-                  }}
-                >
-                  <CardActions sx={{ flex: '0 0 5%' }}>
-                    <Checkbox
-                      checked={t.completed}
-                      onChange={() => handleComplete(t._id)} // Complete a task
-                    />
-                  </CardActions>
+            <>
+              {list.map((t, index) => (
+                (
+                  <React.Fragment key={t._id}>
+                    <HoverCard
+                      key={t._id}
+                      variant="outlined"
+                      sx={{
+                        display: 'flex',
+                        width: '-80%',
+                        justifyContent: 'left',
+                        alignItems: 'center',
+                        my: index === 0 ? 0 : 2, // Adds margin only to cards except the first one
+                        mx: 4,
+                        // backgroundColor: '#1B262C'
+                      }}
+                    >
+                      <CardActions sx={{ flex: '0 0 5%' }}>
+                        <Checkbox
+                          checked={t.completed}
+                          onChange={() => handleComplete(t._id)} // Complete a task
+                        />
+                      </CardActions>
 
 
-                  <CardContent sx={{ flex: '0 0 90%' }}>
-                    <Typography variant="h6" component="div">
-                      {t.title}
-                    </Typography>
-                    <Typography variant="subtitle2" component="div" sx={{ opacity: 0.7 }}>
-                      [Created On] {t.createdAt.split('T')[0]}
-                    </Typography>
-                  </CardContent>
+                      <CardContent sx={{ flex: '0 0 90%' }}>
+                        <Typography variant="h6" component="div">
+                          {t.title}
+                        </Typography>
+                        <Typography variant="subtitle2" component="div" sx={{ opacity: 0.7 }}>
+                          [Created On] {t.createdAt.split('T')[0]}
+                        </Typography>
+                      </CardContent>
 
-                  <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flex: '0 0 5%' }}>
-                    <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleUpdateClick(t._id)}>
-                      <BorderColorRoundedIcon fontSize='small' color="primary"/>
-                    </IconButton>
+                      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flex: '0 0 5%' }}>
+                        <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleUpdateClick(t._id)}>
+                          <BorderColorRoundedIcon fontSize='small' color="primary" />
+                        </IconButton>
 
-                    <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleDeleteClick(t._id)}>
-                      <DeleteOutlineRoundedIcon fontSize='small' color="error" />
-                    </IconButton>
-                  </Box>
-                </HoverCard>
-              )
-            ))
+                        <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleDeleteClick(t._id)}>
+                          <DeleteOutlineRoundedIcon fontSize='small' color="error" />
+                        </IconButton>
+                      </Box>
+                    </HoverCard>
+                  </React.Fragment>
+
+
+                )
+              ))}
+              <Fab
+                variant="contained"
+                onClick={() => handleCreateClick()}
+                sx={{
+                  position: 'relative',
+                  top: '2%',
+                  left: '93.5%',
+                }}
+              >
+                  <AddIcon style={{ color: '#1976d2' }} />
+              </Fab>
+            </>
           ) : (
             <Grid
               container

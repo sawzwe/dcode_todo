@@ -51,22 +51,6 @@ export default function CreateForm() {
         setSnackbarOpen(false);
     };
 
-    // if (loading) {
-    //     return (
-    //         // Center the loading gif inside the paper using Grid
-    //         <Grid
-    //             container
-    //             justifyContent="center"
-    //             alignItems="center"
-    //             sx={{ width: '100%', height: '85vh' }}
-    //         >
-    //             <Grid item>
-    //                 <img src="/loading2.gif" alt="Loading..." />
-    //             </Grid>
-    //         </Grid>
-    //     );
-    // }
-
     return (
         <>
             <Box
