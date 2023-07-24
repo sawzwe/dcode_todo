@@ -179,11 +179,11 @@ const TodoList = () => {
 
                   <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flex: '0 0 5%' }}>
                     <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleUpdateClick(t._id)}>
-                      <BorderColorRoundedIcon fontSize='small' />
+                      <BorderColorRoundedIcon fontSize='small' color="primary"/>
                     </IconButton>
 
                     <IconButton size="large" color="inherit" sx={{ opacity: 0.7 }} onClick={() => handleDeleteClick(t._id)}>
-                      <DeleteOutlineRoundedIcon fontSize='small' />
+                      <DeleteOutlineRoundedIcon fontSize='small' color="error" />
                     </IconButton>
                   </Box>
                 </HoverCard>

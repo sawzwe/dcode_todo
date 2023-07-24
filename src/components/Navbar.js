@@ -9,10 +9,11 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Link from 'next/link';
 import { Button } from '@mui/material';
 import { useState } from 'react';
-
 // import CreateDialog from './CreateDialog';
 
-export default function Navbar() {{
+
+export default function Navbar() {
+    {
 
     };
     return (
@@ -20,28 +21,24 @@ export default function Navbar() {{
             <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                 <AppBar position="static">
                     <Toolbar sx={{ bgcolor: 'primary.error' }}>
-                        <Typography variant="h5" noWrap component="div">
-                            <Link href={"/"}>Todo</Link>
+                        <Typography variant="h6" noWrap component="div">
+                            <Link href={"/"}>D-code Todo</Link>
                         </Typography>
-                        <Button
+                        {/* <Button
                             variant='outlined'
                             size='large'
                             sx={{ color: 'white' }}
                         >
                             Create +
-                        </Button>
+                        </Button> */}
+                        
                         <Box sx={{ flexGrow: 1 }} />
+                        <Typography variant="subtitle1" noWrap component="div" sx={{ marginRight: '10px' }}>
+                        <Link href={'/create'}>Create</Link>
+                        </Typography>
                         <Typography variant="subtitle1" noWrap component="div" sx={{ marginRight: '10px' }}>
                             <Link href={"/completed"}>Completed</Link>
                         </Typography>
-                        <Typography variant="subtitle1" noWrap component="div" sx={{ marginRight: '10px' }}>
-                            History
-                        </Typography>
-                        <IconButton size="large" color="inherit" >
-                            <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
                     </Toolbar>
                 </AppBar>
             </Box>
