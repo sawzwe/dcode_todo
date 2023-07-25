@@ -13,16 +13,17 @@ Make sure you have Node.js installed on your computer.
 ### Installation
 
 1. Clone the repository to your local machine using Git:
-
+```
 git clone <repository-url>
-
+```
 2. Navigate to the project directory:
+```
 cd todo-app
-
-
+```
 3. Install the required dependencies:
+```
 npm install
-
+```
 
 ### Running the App
 
@@ -58,7 +59,7 @@ To learn more about Next.js, Material-UI, and Axios, check out their official do
 
 ## Feedback and Contributions
 
-Your feedback and contributions to the Todo App are welcome! If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/your-username/todo-app).
+Your feedback and contributions to the Todo App are welcome! If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/saw-zwe/todo-app).
 
 ## Deploy on Vercel
 
