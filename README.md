@@ -59,7 +59,7 @@ To learn more about Next.js, Material-UI, and Axios, check out their official do
 
 ## Feedback and Contributions
 
-Your feedback and contributions to the Todo App are welcome! If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/saw-zwe/todo-app).
+Your feedback and contributions to the Todo App are welcome! If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on [GitHub](https://github.com/sawzwe/dcode_todo).
 
 ## Deploy on Vercel
 
