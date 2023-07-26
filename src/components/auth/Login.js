@@ -18,18 +18,11 @@ export default function Login() {
                             <TextField label="Password" variant="outlined" type="password" fullWidth />
                         </Box>
                         <CardActions sx={{ justifyContent: "center" }}>
-                            <Button variant="outlined" size="large" sx={{ width: "60%", backgroundColor: "#2196f3" }}>
+                            <Button variant="outlined" size="large" sx={{ width: "60%" }}>
                                 Login
                             </Button>
                         </CardActions>
                     </form>
-                    <Typography variant="body2" color="subtitle1" align="center" mt={2}>
-                        OR
-                    </Typography>
-                    {/* <Fab>
-                        <FacebookRoundedIcon color='blue'/>
-                    </Fab> */}
-
                     <Typography variant="body2" color="textSecondary" align="center" mt={2}>
                         Don't have an account? <Button color="primary">Sign Up</Button>
                     </Typography>
