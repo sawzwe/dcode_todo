@@ -23,6 +23,7 @@ cd todo-app
 3. Install the required dependencies:
 ```
 npm install
+npm install jsonwebtoken bcrypt
 ```
 
 ### Running the App
@@ -32,6 +33,7 @@ npm run dev
 
 
 This will start the app on [http://localhost:3000](http://localhost:3000). Open this URL in your browser to access the Todo App.
+
 
 ## Features
 
