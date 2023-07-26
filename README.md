@@ -14,11 +14,11 @@ Make sure you have Node.js installed on your computer.
 
 1. Clone the repository to your local machine using Git:
 ```
-git clone https://github.com/sawzwe/dcode_todo.git
+git clone https://github.com/sawzwe/todo_responsive_web_app.git
 ```
 2. Navigate to the project directory:
 ```
-cd todo-app
+cd todo_responsive_web_app
 ```
 3. Install the required dependencies:
 ```
