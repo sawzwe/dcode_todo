@@ -1,5 +1,5 @@
-import { verifyToken } from '../../../auth/auth';
-import User from '../../../models/User'; // Assuming the User model is exported from the specified path
+import User from '../../../../models/User';
+// import  verifyToken  from '../../../../auth/auth';
 import connectMongoDB from '../../../../libs/mongodb';
 
 
