@@ -1,6 +1,8 @@
 # Todo App
 
 The Todo App is a web application built with Next.js and Material-UI that allows you to manage your tasks efficiently. You can add, update, delete, and recycle tasks in a user-friendly interface.
+![image](https://github.com/sawzwe/todo_responsive_web_app/assets/94424420/3be1e05c-54d0-473a-a8be-f3f2779dc94b)
+
 
 ## Getting Started
 
