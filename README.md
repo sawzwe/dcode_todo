@@ -14,7 +14,7 @@ Make sure you have Node.js installed on your computer.
 
 1. Clone the repository to your local machine using Git:
 ```
-git clone <repository-url>
+git clone https://github.com/sawzwe/dcode_todo.git
 ```
 2. Navigate to the project directory:
 ```
